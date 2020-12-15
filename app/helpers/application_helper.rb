@@ -20,8 +20,12 @@ module ApplicationHelper
     current_user.friends
   end
 
-  def requests
-    current_user.friend_requests
+  def requestee?(user)
+    current_user.friend_requests.include?(user)
+  end
+
+  def pending_friend?(user)
+    current_user.pending_friends.include?(user)
   end
 
   def friend?(user)
