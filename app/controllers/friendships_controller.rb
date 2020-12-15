@@ -4,9 +4,7 @@ class FriendshipsController < ApplicationController
 
   def create
     friend_id = params[:friend_id]
-    @friendship = Friendship.find_or_create_by(user_id: current_user.id, friend_id: friend_id)
-    @friendship.confirmed = false
-    @friendship.save
+    @friendship = Friendship.find_or_create_by(user_id: current_user.id, friend_id: friend_id, confirmed: false)
   end
 
   def update
@@ -20,10 +18,10 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:user_id])
-    friend = User.find(params[:friend_id])
-    Friendship.find_by_user_id_and_friend_id(user, friend).destroy
-    Friendship.find_by_user_id_and_friend_id(friend, user).destroy
-    redirect_to users_path
+    # user = User.find(params[:user_id])
+    # friend = User.find(params[:friend_id])
+    # Friendship.find_by_user_id_and_friend_id(user, friend).destroy
+    # Friendship.find_by_user_id_and_friend_id(friend, user).destroy
+    # redirect_to users_path
   end
 end
