@@ -1,6 +1,6 @@
-# PROJECT: Private-Events
+# PROJECT: STAY IN TOUCH
 
-This project is an event management app named EVENTISE, where user can create events, attend events  and can see all the events of others happening in Future.
+This project is a social app named STAY IN TOUCH, where user can send friend requests, accept requests, write posts and see his friend's posts.
 
 - User can sign up, sign in and sign out (Thanks to Devise).
 - User can see all friends.
@@ -26,9 +26,9 @@ This project is an event management app named EVENTISE, where user can create ev
 
 **Step 1**<br>
 Clone the repo in your local folder where you want to run it<br>
-`git@github.com:SajjadAhmad14/Private-events.git`.<br>
+`git@github.com:SajjadAhmad14/ror-social-scaffold.git`.<br>
 **Step 2**<br>
-Run 'cd Private-events'<br>
+Run 'cd ror-social-scaffold'<br>
 **Step 3**<br>
 Run 'bundle install'<br>
 **Step 4**<br>
