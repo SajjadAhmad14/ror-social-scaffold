@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Friendship, type: :model do
+RSpec.describe Post, type: :model do
   let(:user) { User.create(name:'a', email:'a@a.com', password:'123456') }
   it 'Create a new data container' do
     post = Post.new(content: 'abc')
