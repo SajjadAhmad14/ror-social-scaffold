@@ -351,3 +351,15 @@ form {
 .container {
   display: flex;
 }
+
+.container button {
+  background-color: #6495ED;
+  border: none;
+  border-radius: 4px;
+  height: 30px;
+  width: 20%;
+  margin: 9px 10px 0px 10px;
+  color: #dcedc8;
+  pointer-events: none;
+  font-weight: 900;
+}
