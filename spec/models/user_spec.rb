@@ -16,6 +16,22 @@ RSpec.describe Friendship, type: :model do
     expect(user).to_not be_valid
   end
 
+
+  it 'User is not valid if name is more than 20 chars long' do
+    user = User.new(name: 'this is my real and final name', email: 'a@a.com', password: '123456')
+    expect(user).to_not be_valid
+  end
+  
+  it 'User is not valid without email attribute' do
+    user = User.new(email: nil)
+    expect(user).to_not be_valid
+  end
+
+  it 'User is not valid without password attribute' do
+    user = User.new(password: nil)
+    expect(user).to_not be_valid
+  end
+
   it 'User has many posts' do
     expect(User.reflect_on_association(:posts).macro).to eq(:has_many)
   end
@@ -51,4 +67,7 @@ RSpec.describe Friendship, type: :model do
   it 'User has many friend requests' do
     expect(User.reflect_on_association(:friend_requests).macro).to eq(:has_many)
   end
+
+
+  # expect("abc").to have_attributes(size: (be > 2))
 end
