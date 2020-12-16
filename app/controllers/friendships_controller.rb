@@ -5,6 +5,7 @@ class FriendshipsController < ApplicationController
   def create
     friend_id = params[:friend_id]
     @friendship = Friendship.find_or_create_by(user_id: current_user.id, friend_id: friend_id, confirmed: false)
+    flash[:notice] = 'Invitation sent successfully!'
     redirect_to users_path
   end
 
@@ -15,6 +16,7 @@ class FriendshipsController < ApplicationController
     @friendship.confirmed = true
     @friendship.save
     @friendship = Friendship.find_or_create_by(user_id: current_user.id, friend_id: params[:user_id], confirmed: true)
+    flash[:notice] = 'Friend request accepted!'
     redirect_to users_path
   end
 
