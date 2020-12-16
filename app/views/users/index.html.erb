@@ -5,7 +5,9 @@
         <li>
           <div class = 'container'>
             <h1><%= link_to user.name,  user_path(user), class: 'profile-link' %></h1>
-            <%= render 'friendships/friend_request_form', user: user %>
+            <% unless pending_friend?(user) %>
+              <%= render 'friendships/friend_request_form', user: user %>
+            <% end %>
             <% if requestee?(user)%>
               <button type="button">NEW REQUEST</button>
               <%= render 'friendships/accept_request_form', user: user, submit_text: 'Accept' %>
