@@ -31,5 +31,4 @@ module ApplicationHelper
   def friend?(user)
     all_friends.include?(user)
   end
-
 end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:user) { User.create(name:'a', email:'a@a.com', password:'123456') }
+  let(:user) { User.create(name: 'a', email: 'a@a.com', password: '123456') }
   it 'Create a new data container' do
     post = Post.new(content: 'abc')
     expect(post).to be_a_new(Post)
@@ -33,5 +33,4 @@ RSpec.describe Post, type: :model do
   it 'Post belongs to a user' do
     expect(Post.reflect_on_association(:user).macro).to eq(:belongs_to)
   end
-
 end
