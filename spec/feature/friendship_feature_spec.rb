@@ -6,8 +6,8 @@ RSpec.feature 'Friendship invitation', type: :feature do
   end
   scenario 'invite a user for friendship' do
     visit 'users/sign_in'
-    fill_in 'user[email]',	with: 'a@a.com'
-    fill_in 'user[password]',	with: '123456'
+    fill_in 'user[email]',with: 'a@a.com'
+    fill_in 'user[password]',with: '123456'
     click_button 'Log in'
     visit 'users'
     click_button 'Invite'
@@ -21,8 +21,8 @@ RSpec.feature 'Invitation cancelation', type: :feature do
   end
   scenario 'Cancel pending invitation' do
     visit 'users/sign_in'
-    fill_in 'user[email]',	with: 'a@a.com'
-    fill_in 'user[password]',	with: '123456'
+    fill_in 'user[email]',with: 'a@a.com'
+    fill_in 'user[password]',with: '123456'
     click_button 'Log in'
     visit 'users'
     click_button 'Invite'
@@ -37,15 +37,15 @@ RSpec.feature 'Invitation acceptence', type: :feature do
   end
   scenario 'Accept an invitation' do
     visit 'users/sign_in'
-    fill_in 'user[email]',	with: 'a@a.com'
-    fill_in 'user[password]',	with: '123456'
+    fill_in 'user[email]',with: 'a@a.com'
+    fill_in 'user[password]',with: '123456'
     click_button 'Log in'
     visit 'users'
     click_button 'Invite'
     click_on 'Sign out'
     visit new_user_session_path
-    fill_in 'user[email]',	with: 'b@b.com'
-    fill_in 'user[password]',	with: '123456'
+    fill_in 'user[email]',with: 'b@b.com'
+    fill_in 'user[password]',with: '123456'
     click_button 'Log in'
     visit 'users'
     expect(page).to have_text('a')
@@ -60,15 +60,15 @@ RSpec.feature 'Invitation Rejection', type: :feature do
   end
   scenario 'Reject an invitation' do
     visit 'users/sign_in'
-    fill_in 'user[email]',	with: 'a@a.com'
-    fill_in 'user[password]',	with: '123456'
+    fill_in 'user[email]',with: 'a@a.com'
+    fill_in 'user[password]',with: '123456'
     click_button 'Log in'
     visit 'users'
     click_button 'Invite'
     click_on 'Sign out'
     visit new_user_session_path
-    fill_in 'user[email]',	with: 'b@b.com'
-    fill_in 'user[password]',	with: '123456'
+    fill_in 'user[email]',with: 'b@b.com'
+    fill_in 'user[password]',with: '123456'
     click_button 'Log in'
     visit 'users'
     expect(page).to have_text('a')
