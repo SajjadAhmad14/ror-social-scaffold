@@ -8,6 +8,10 @@ This project is a social app named STAY IN TOUCH, where user can send friend req
 - User can accept friend requests from other users.
 - User can see all the posts written by himself and his friends.
 
+## Live Version ##
+
+<a href="https://nameless-inlet-39116.herokuapp.com/" target="_blank">Stay In Touch</a>
+
 ## Built With
 
 - Ruby on Rails
