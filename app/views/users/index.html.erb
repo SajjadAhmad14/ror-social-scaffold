@@ -3,18 +3,20 @@
     <% @users.each do |user| %>
       <% unless user == current_user %>
         <li>
-          <span class="profile-link">
-            <div class = 'container'>
-              <h1><%= link_to user.name,  user_path(user), class: 'profile-link' %></h1>
+          <div class = 'container'>
+            <h1><%= link_to user.name,  user_path(user), class: 'profile-link' %></h1>
+            <% unless pending_friend?(user) %>
               <%= render 'friendships/friend_request_form', user: user %>
-              <% requestor.each do |r| %>
-                <% if user == r %>
-                  <%= render 'friendships/accept_request_form', user: user, submit_text: 'Accept' %>
-                  <%= render 'friendships/reject_request_form', user: user, submit_text: 'Cancel' %>
-                <% end %>
-              <% end %>
-            </div>
-          </span>
+            <% end %>
+            <% if requestee?(user)%>
+              <%= render 'friendships/accept_request_form', user: user, submit_text: 'Accept' %>
+              <%= render 'friendships/reject_request_form', user: user, submit_text: 'Reject' %>
+            <% end %>
+            <% if pending_friend?(user) %>
+              <button type="button">PENDING REQUEST</button>
+              <%= render 'friendships/cancel_request_form', user: user, submit_text: 'Cancel' %>
+            <% end %>
+          </div>
         </li>
       <% end %>
     <% end %>

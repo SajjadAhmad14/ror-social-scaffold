@@ -1,6 +1,11 @@
 <section class="user-section">
   <h2><%= "Name: #{@user.name}" %></h2>
-  <%= render 'friendships/friend_request_form', user: @user %>
+  <% unless pending_friend?(@user) %>
+    <%= render 'friendships/friend_request_form', user: @user %>
+  <% end %>
+  <% if pending_friend?(@user) %>
+    <button type="button">PENDING REQUEST</button>
+  <% end %>
   <article class="timeline">
     <h3>Recent posts:</h3>
     <ul class="posts">
