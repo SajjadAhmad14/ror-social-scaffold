@@ -15,4 +15,20 @@ module ApplicationHelper
       link_to('Like!', post_likes_path(post_id: post.id), method: :post)
     end
   end
+
+  def all_friends
+    current_user.friends
+  end
+
+  def requestee?(user)
+    current_user.friend_requests.include?(user)
+  end
+
+  def pending_friend?(user)
+    current_user.pending_friends.include?(user)
+  end
+
+  def friend?(user)
+    all_friends.include?(user)
+  end
 end

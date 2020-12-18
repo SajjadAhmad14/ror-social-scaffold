@@ -1,5 +1,24 @@
 <section class="users-section">
   <ul class="users-list">
-    <%= render @users %>
+    <% @users.each do |user| %>
+      <% unless user == current_user %>
+        <li>
+          <div class = 'container'>
+            <h1><%= link_to user.name,  user_path(user), class: 'profile-link' %></h1>
+            <% unless pending_friend?(user) %>
+              <%= render 'friendships/friend_request_form', user: user %>
+            <% end %>
+            <% if requestee?(user)%>
+              <%= render 'friendships/accept_request_form', user: user, submit_text: 'Accept' %>
+              <%= render 'friendships/reject_request_form', user: user, submit_text: 'Reject' %>
+            <% end %>
+            <% if pending_friend?(user) %>
+              <button type="button">PENDING REQUEST</button>
+              <%= render 'friendships/cancel_request_form', user: user, submit_text: 'Cancel' %>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
   </ul>
 </section>
